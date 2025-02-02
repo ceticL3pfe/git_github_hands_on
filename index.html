@@ -3,9 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Git & Github Workshop - Hands-On Exercise</title>
+    <title>Git & Github Workshop - Hands-On Exercise - Open Source Day | Open Source Club</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        #attendees {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+        .attendee {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .attendee:last-child {
+            border-bottom: none;
+        }
+    </style>
 </head>
 <body>
+    <h1>Attendees Directory</h1>
+    <div id="attendees">Loading...</div>
     
+    <script>
+        async function loadAttendees() {
+            try {
+                const response = await fetch('attendees.json');
+                const data = await response.json();
+                const attendeesDiv = document.getElementById('attendees');
+                attendeesDiv.innerHTML = '';
+                data.forEach(attendee => {
+                    const attendeeDiv = document.createElement('div');
+                    attendeeDiv.classList.add('attendee');
+                    attendeeDiv.innerHTML = `<strong>${attendee.name}</strong> - ${attendee.role}<br>${attendee.bio}`;
+                    attendeesDiv.appendChild(attendeeDiv);
+                });
+            } catch (error) {
+                document.getElementById('attendees').innerHTML = 'Failed to load attendees.';
+            }
+        }
+        loadAttendees();
+    </script>
 </body>
 </html>
