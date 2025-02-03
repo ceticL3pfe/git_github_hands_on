@@ -14,7 +14,7 @@ Click the **Fork** button at the top-right corner of this repository to create a
 ### 2️⃣ Clone Your Forked Repository
 Open your terminal and run:
 ```bash
- git clone https://github.com/`YOUR_GITHUB_USERNAME/git_github_hands_on.git
+ git clone https://github.com/YOUR_GITHUB_USERNAME/git_github_hands_on.git
 ```
 Replace `YOUR_GITHUB_USERNAME` with your actual GitHub username.
 
